@@ -1,4 +1,4 @@
-# Flight Prices Prediction 
+# Flight Prices Predictive Modeling
 
 ![flight](./pictures/cover_picture.jpg "flight")
 
@@ -128,14 +128,30 @@ He wants to know if adding features would help in building a more accurate model
 
 
 ## Modeling - Linear Regression
-- **Model Selection**: Describe the models you chose (e.g., regression, classification, clustering).
-- **Modeling Process**: Discuss how you split the data (train/test), parameter tuning, and evaluation metrics (e.g., accuracy, RMSE, F1 score).
-- **Model Results**: Present the results from the models, such as performance metrics and any visualizations like ROC curves or confusion matrices.
+- Correlation between key factors < ±0.9
+- Linear relationship between flight price and different factors .
+
+- Model 1 (Using Group 1)
+
+  ![distribution](./pictures/linreg_1.png "distribution")
+
+  - RMSE: 33.51
+  - R<sup>2</sup> Score : 0.6112
+
+
+- Model 2 (Using Group 1 + Group 2)
+
+  ![distribution](./pictures/linreg_2.png "distribution")
+
+  - RMSE: 33.50
+  - R<sup>2</sup> Score : 0.6115
 
 ## Exploring Other Models
-- **Key Findings**: Summarize the insights you gained from the analysis and modeling.
-- **Business Implications**: Discuss the practical implications of your findings (e.g., how the results can be used to improve decision-making or strategy).
-- **Visualizations**: Include charts or graphs to support your insights (e.g., bar charts, line graphs, pie charts).
+  | Criteria | Gradient Boosting | Random Forest | Cat Boost | XGB |
+  | --- | --- | --- | --- | --- |
+  | RMSE | 24.24 | 23.89 | 21.89 | 22.76 |
+  | R<sup>2</sup> Score | 0.7966 | 0.8024 | 0.8341 | 0.8206 |
+
 
 ## Recommendations
 It is recommended to use CatBoost Regression for this task, as it consistently yields the lowest RMSE and the highest R² score compared to other models. This machine learning technique effectively leverages features from both Group 1 and Group 2, making it particularly well-suited for predicting flight prices.
