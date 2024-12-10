@@ -1,11 +1,23 @@
-# Data Analytics Project: [Project Title]
+# Flight Prices Prediction 
+
+![flight](./pictures/cover_picture.jpg "flight")
 
 ## Project Overview
-Briefly describe the objective of the project, the problem you're trying to solve, and the impact of your analysis. Provide context about the dataset or the domain the project is based on.
+Airlines in India are facing intense competition in domestic market, with price being a key factor, especially for low-cost carriers. The Head of the Pricing Strategy Department from Swift Airline understands flight prediction models in the market utilize features, such as:
+- Historical price data
+- Booking lead time
+- Seasonality & holidays
+- Flight demand	
+- Route & destination
+- Airport choice
 
-Example:
-- **Problem**: Analyzing customer purchase patterns to identify trends and improve marketing strategies.
-- **Dataset**: Retail sales data from a chain of stores, spanning the last two years.
+However, for this newly founded airline to stand out, relying solely on existing tools in the market is not sufficient. He has requested the data analytics team to build a predictive model using features as per tools in current market, and another one integrating additional features, such as:	
+- Skytrax rating
+- Number of staff
+- Number of aircrafts
+- Flight models owned
+
+He wants to know if adding features would help in building a more accurate model and which machine learning model fits the best. A sophisticated and flexible pricing strategy would help Swift Airline react faster to market changes and ensure it stands out in a highly competitive industry.
 
 ## Table of Contents
 1. [Problem Definition](#problem-definition)
@@ -24,33 +36,50 @@ Example:
 - Define any hypotheses you are testing.
 
 ## Data Collection
-- **Dataset Overview**: Describe the source and nature of the data (e.g., data from a public API, company database, Kaggle dataset).
-- **Data Description**: Briefly describe the variables in the dataset (e.g., columns, types of data, etc.).
-- **Data Source(s)**: Mention where the data comes from (e.g., Kaggle, API, company's internal database).
+- **Dataset Overview**: Kaggle's ‘flight_price_prediction_dataset.csv’, 11 columns x 10683 rows
+- **Data Description**: Historical Price Data, Date of Journe, Source, Destination, Route, Total Stops, etc.
+- **Additional Info**: Merged with additional dataset: Number of Staff, Number of Aircrafts, Aircraft Models, etc.
 
-Example:
-- **Source**: Kaggle's "Retail Sales Data"
-- **Features**: Date, Store ID, Sales, Promotions, Location, etc.
-
-## Data Exploration
-- **Initial Exploration**: Summarize the initial exploration of the data (e.g., size, shape, and basic statistics).
-- **Data Visualization**: Include relevant visualizations (e.g., histograms, box plots, correlation matrices) to understand the distribution and relationships between variables.
-  
-Example:
-- Number of rows and columns.
-- Basic summary statistics (mean, median, mode).
-- Distribution of sales by location.
+## Data Limitations
+- **Limited training data**: Only from March to June 2019
+- **Historical biases**: E.g., during economic downturns or periods of low demand can skew predictions
+- **Macroeconomic events**: Factors like oil price changes, pandemics, or geopolitical instability (e.g., wars, government regulations) can drastically alter flight pricing
 
 ## Data Cleaning
-- **Missing Values**: Identify and handle missing data (e.g., imputation, removal).
-- **Outliers**: Identify and handle outliers (e.g., capping, removing).
-- **Data Transformation**: Any transformations applied (e.g., normalization, encoding categorical variables).
-
+- **Missing Values**: Dropped 1 row with route & total stops are null
+- **Outliers**: Removed one row with ‘5m’ duration
+- **Duplicates**: Removed 220 duplicate rows 
+- **Data Transformation**: Converted all the column names to lower case, standardized the name in ‘airline’, converted data to the correct format
+  
 ## Analysis
+- **Feature Engineering**:
+  -	Created ‘month’ and ‘day’ from ‘date of journey’
+  -	Created ‘days left’: [‘date_of_journey’] – [28-Feb-2019]
+  -	Created ‘skyrax_rating’, ‘inflight meal’, ‘checked_in _luggage’
+  -	Converted ‘dep_time’ to ‘dep_session’: dawn, morning, afternoon, night
+  -	Converted ‘arrival_time’ to ‘arr_session’: dawn, morning, afternoon, night
+  -	Created ‘day_of_week’ from ‘date of journey’
+  -	Converted ‘price’ to ‘price_usd’
+  -	Converted ‘duration’ in hour and minutes to ‘duration_in_hours’ in hour format
+  - Replaced number of stops with numerical value
 - **Exploratory Data Analysis (EDA)**: Provide detailed insights into the data (e.g., trends, correlations, patterns).
-- **Statistical Tests**: Any tests or hypothesis testing conducted (e.g., t-tests, chi-square tests).
-- **Feature Engineering**: Describe any new features created for modeling.
 
+    Distribution of flight prices: $40 – 50 is the most common flight prices
+
+  ![distribution](./pictures/distribution_of_flight_prices_1.png "distribution")
+
+ ![distribution](./pictures/calendar_day.png "distribution")
+
+ ![distribution](./pictures/month.png "distribution")
+
+ ![distribution](./pictures/booking_in_advance.png "distribution")
+
+ ![distribution](./pictures/durations.png "distribution")
+
+ ![distribution](./pictures/departure.png "distribution")
+
+ ![distribution](./pictures/arrival.png "distribution")
+  
 ## Modeling (if applicable)
 - **Model Selection**: Describe the models you chose (e.g., regression, classification, clustering).
 - **Modeling Process**: Discuss how you split the data (train/test), parameter tuning, and evaluation metrics (e.g., accuracy, RMSE, F1 score).
