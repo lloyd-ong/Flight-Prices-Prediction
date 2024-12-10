@@ -1,4 +1,4 @@
-# Flight Prices Predictive Modeling
+# Domestic Flight Prices Predictive Modeling
 
 ![flight](./pictures/cover_picture.jpg "flight")
 
