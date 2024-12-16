@@ -22,13 +22,14 @@ He wants to know if adding features would help in building a more accurate model
 ## Table of Contents
 1. [Problem Definition](#problem-definition)
 2. [Data Collection](#data-collection)
-3. [Data Exploration](#data-exploration)
+3. [Data Limitations](#data-limitations)
 4. [Data Cleaning](#data-cleaning)
 5. [Analysis](#analysis)
-6. [Modeling (if applicable)](#modeling)
-7. [Results and Insights](#results-and-insights)
-8. [Conclusion](#conclusion)
-9. [Future Work](#future-work)
+6. [Key Features](#key-features)
+7. [Modeling - Linear Regression](#modeling---linear-regression)
+8. [Exploring Other Models](#exploring-other-models)
+9. [Recommendations](#recommendations)
+10. [Future Work](#future-work)
 
 ## Problem Definition
 - Problem Statement
